@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>线性回归数学推导</title>
+      <link href="/2018/06/20/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E6%95%B0%E5%AD%A6%E6%8E%A8%E5%AF%BC/"/>
+      <url>/2018/06/20/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E6%95%B0%E5%AD%A6%E6%8E%A8%E5%AF%BC/</url>
+      <content type="html"><![CDATA[<p>由样本数据，设</p><script type="math/tex; mode=display">y=\theta X+\epsilon</script><p>其中，y为真实值，X为原始数据矩阵，$\theta$ 为我们要求的最佳拟合参数向量。$\epsilon$ 为误差值。由于$\epsilon$ 符合正态分布，所以某一数据出现的概率为：</p><script type="math/tex; mode=display">P_i={1\over{\sqrt{2\pi}\sigma}}exp(-{\epsilon^2 \over 2\sigma^2})={1\over{\sqrt{2\pi}\sigma}}exp(-{(y^i-\theta^Tx^i)^2 \over 2\sigma^2})</script><p>似然函数</p><p>我们要得到出现样本数据这个结果的概率，由联合概率公式：</p><script type="math/tex; mode=display">L(\theta)=\prod_{i=1}^m P(y^i|x^i;\theta)=\prod_{i=1}^m{1\over{\sqrt{2\pi}\sigma}}exp(-{(y^i-\theta^Tx^i)^2 \over 2\sigma^2})</script><p>取对数似然：</p><script type="math/tex; mode=display">ln(L(\theta))=ln(\prod_{i=1}^m{1\over{\sqrt{2\pi}\sigma}}exp(-{(y^i-\theta^Tx^i)^2 \over 2\sigma^2}))</script><p>由对数公式，得：</p><script type="math/tex; mode=display">ln(L(\theta))=\sum_{i=1}^m ln({1\over{\sqrt{2\pi}\sigma}}exp(-{(y^i-\theta^Tx^i)^2 \over 2\sigma^2})) \\=m*ln({1\over{\sqrt{2\pi}\sigma}})-{1\over{\sigma^2}}*{1\over 2}*\sum_{i=1}^m(y^i-\theta^Tx^i)^2</script><p>上面这个式子，前面一部分是正数，方差是已知的，于是我们只要求后面的目标函数。只要目标函数越大，似然函数就越小。</p><p>目标函数</p><script type="math/tex; mode=display">J(\theta)={1\over 2}\sum_{i=1}^m (h_\theta(x^i)-y^i)^2={1\over2}(X\theta-y)^T(X\theta-y)</script><p>求偏导：</p><script type="math/tex; mode=display">\Delta_\theta J(\theta)=\Delta_\theta({1\over2}(X\theta-y)^T(X\theta-y))=\Delta_\theta({1\over2}(\theta^TX^T-y^T)(X\theta-y)) \\=\Delta_\theta({1\over2}(\theta^TX^TX\theta-\theta^TX^Ty-y^TX\theta+y^Ty)) \\={1\over2}(2X^TX\theta-X^Ty-(y^TX)^T) \\=X^TX\theta-X^Ty</script><p>令上面的偏导为0,得：</p><script type="math/tex; mode=display">\theta=(X^TX)^{-1}X^Ty</script>]]></content>
+      
+      <categories>
+          
+          <category> 人工智能 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 线性回归 </tag>
+            
+            <tag> 机器学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>新立项开发方案讨论</title>
       <link href="/2018/06/20/%E6%96%B0%E7%AB%8B%E9%A1%B9%E5%BC%80%E5%8F%91%E6%96%B9%E6%A1%88%E8%AE%A8%E8%AE%BA/"/>
       <url>/2018/06/20/%E6%96%B0%E7%AB%8B%E9%A1%B9%E5%BC%80%E5%8F%91%E6%96%B9%E6%A1%88%E8%AE%A8%E8%AE%BA/</url>

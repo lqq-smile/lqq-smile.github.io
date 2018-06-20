@@ -43,7 +43,7 @@
     
     <title>
         
-            分类: 数据库 | 
+            线性回归数学推导 | 
         
         李清泉个人博客
     </title>
@@ -54,7 +54,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="">
+    <meta name="keywords" content=",线性回归,机器学习">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -215,7 +215,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="李清泉个人博客">
-    <meta name="msapplication-starturl" content="https://lqq-smile.github.io/categories/数据库/">
+    <meta name="msapplication-starturl" content="https://lqq-smile.github.io/2018/06/20/线性回归数学推导/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="李清泉个人博客">
@@ -230,13 +230,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://lqq-smile.github.io/categories/数据库/">
+    <meta property="og:url" content="https://lqq-smile.github.io/2018/06/20/线性回归数学推导/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="分类: 数据库 | 李清泉个人博客">
+    <meta property="og:title" content="线性回归数学推导 | 李清泉个人博客">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
-    
+    <meta property="og:article:tag" content="线性回归"> <meta property="og:article:tag" content="机器学习"> 
 
+    
+        <meta property="article:published_time" content="Wed Jun 20 2018 22:44:10 GMT+0800">
+        <meta property="article:modified_time" content="Wed Jun 20 2018 23:45:26 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -244,13 +247,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://lqq-smile.github.io/categories/数据库/index.html" />
+        <link rel="canonical" href="https://lqq-smile.github.io/2018/06/20/线性回归数学推导/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://lqq-smile.github.io/2018/06/20/线性回归数学推导/index.html",
+    "headline": "线性回归数学推导",
+    "datePublished": "Wed Jun 20 2018 22:44:10 GMT+0800",
+    "dateModified": "Wed Jun 20 2018 23:45:26 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "李清泉",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://oco8bvfr8.qnssl.com/new_aman.jpg?imageView2/2/w/300/h/300/interlace/1/q/90"
+        },
+        "description": "深自缄默，如云漂泊"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "李清泉个人博客",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",线性回归,机器学习",
+    "description": "",
+}
+</script>
 
 
     
@@ -284,99 +317,207 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/06/18/数据模型设计范式/">数据模型设计范式</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            先讲一个知识：外键一定要建索引。
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/06/18/数据模型设计范式/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://oco8bvfr8.qnssl.com/new_aman.jpg?imageView2/2/w/300/h/300/interlace/1/q/90" width="44px" height="44px" alt="李清泉's avatar">
-            </div>
-            <div>
-                <strong>李清泉</strong>
-                <span>6月 18, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/数据库/">数据库</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                线性回归数学推导
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="https://oco8bvfr8.qnssl.com/new_aman.jpg?imageView2/2/w/300/h/300/interlace/1/q/90" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>李清泉</strong>
+        <span>6月 20, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/机器学习/">机器学习</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/线性回归/">线性回归</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>由样本数据，设</p>
+<script type="math/tex; mode=display">
+y=\theta X+\epsilon</script><p>其中，y为真实值，X为原始数据矩阵，$\theta$ 为我们要求的最佳拟合参数向量。$\epsilon$ 为误差值。由于$\epsilon$ 符合正态分布，所以某一数据出现的概率为：</p>
+<script type="math/tex; mode=display">
+P_i={1\over{\sqrt{2\pi}\sigma}}exp(-{\epsilon^2 \over 2\sigma^2})={1\over{\sqrt{2\pi}\sigma}}exp(-{(y^i-\theta^Tx^i)^2 \over 2\sigma^2})</script><p>似然函数</p>
+<p>我们要得到出现样本数据这个结果的概率，由联合概率公式：</p>
+<script type="math/tex; mode=display">
+L(\theta)=\prod_{i=1}^m P(y^i|x^i;\theta)=\prod_{i=1}^m{1\over{\sqrt{2\pi}\sigma}}exp(-{(y^i-\theta^Tx^i)^2 \over 2\sigma^2})</script><p>取对数似然：</p>
+<script type="math/tex; mode=display">
+ln(L(\theta))=ln(\prod_{i=1}^m{1\over{\sqrt{2\pi}\sigma}}exp(-{(y^i-\theta^Tx^i)^2 \over 2\sigma^2}))</script><p>由对数公式，得：</p>
+<script type="math/tex; mode=display">
+ln(L(\theta))=\sum_{i=1}^m ln({1\over{\sqrt{2\pi}\sigma}}exp(-{(y^i-\theta^Tx^i)^2 \over 2\sigma^2})) \\
+=m*ln({1\over{\sqrt{2\pi}\sigma}})-{1\over{\sigma^2}}*{1\over 2}*\sum_{i=1}^m(y^i-\theta^Tx^i)^2</script><p>上面这个式子，前面一部分是正数，方差是已知的，于是我们只要求后面的目标函数。只要目标函数越大，似然函数就越小。</p>
+<p>目标函数</p>
+<script type="math/tex; mode=display">
+J(\theta)={1\over 2}\sum_{i=1}^m (h_\theta(x^i)-y^i)^2={1\over2}(X\theta-y)^T(X\theta-y)</script><p>求偏导：</p>
+<script type="math/tex; mode=display">
+\Delta_\theta J(\theta)=\Delta_\theta({1\over2}(X\theta-y)^T(X\theta-y))=\Delta_\theta({1\over2}(\theta^TX^T-y^T)(X\theta-y)) \\
+=\Delta_\theta({1\over2}(\theta^TX^TX\theta-\theta^TX^Ty-y^TX\theta+y^Ty)) \\
+={1\over2}(2X^TX\theta-X^Ty-(y^TX)^T) \\
+=X^TX\theta-X^Ty</script><p>令上面的偏导为0,得：</p>
+<script type="math/tex; mode=display">
+\theta=(X^TX)^{-1}X^Ty</script>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/06/20/新立项开发方案讨论/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
