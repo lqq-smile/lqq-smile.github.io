@@ -43,7 +43,7 @@
     
     <title>
         
-            分类: 人工智能 | 
+            K近邻算法详解 | 
         
         李清泉个人博客
     </title>
@@ -54,7 +54,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="">
+    <meta name="keywords" content=",-K近邻 -机器学习">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -215,7 +215,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="李清泉个人博客">
-    <meta name="msapplication-starturl" content="https://lqq-smile.github.io/categories/人工智能/">
+    <meta name="msapplication-starturl" content="https://lqq-smile.github.io/2018/06/19/K近邻算法详解/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="李清泉个人博客">
@@ -230,13 +230,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://lqq-smile.github.io/categories/人工智能/">
+    <meta property="og:url" content="https://lqq-smile.github.io/2018/06/19/K近邻算法详解/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="分类: 人工智能 | 李清泉个人博客">
+    <meta property="og:title" content="K近邻算法详解 | 李清泉个人博客">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
-    
+    <meta property="og:article:tag" content="-K近邻 -机器学习"> 
 
+    
+        <meta property="article:published_time" content="Tue Jun 19 2018 22:46:23 GMT+0800">
+        <meta property="article:modified_time" content="Wed Jun 20 2018 21:12:52 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -244,13 +247,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://lqq-smile.github.io/categories/人工智能/index.html" />
+        <link rel="canonical" href="https://lqq-smile.github.io/2018/06/19/K近邻算法详解/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://lqq-smile.github.io/2018/06/19/K近邻算法详解/index.html",
+    "headline": "K近邻算法详解",
+    "datePublished": "Tue Jun 19 2018 22:46:23 GMT+0800",
+    "dateModified": "Wed Jun 20 2018 21:12:52 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "李清泉",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://oco8bvfr8.qnssl.com/new_aman.jpg?imageView2/2/w/300/h/300/interlace/1/q/90"
+        },
+        "description": "深自缄默，如云漂泊"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "李清泉个人博客",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",-K近邻 -机器学习",
+    "description": "",
+}
+</script>
 
 
     
@@ -284,286 +317,250 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#K近邻算法概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">K近邻算法概述</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据标准化"><span class="post-toc-number">2.</span> <span class="post-toc-text">数据标准化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#欧氏距离"><span class="post-toc-number">3.</span> <span class="post-toc-text">欧氏距离</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#N维K近邻"><span class="post-toc-number">4.</span> <span class="post-toc-text">N维K近邻</span></a></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/06/19/K近邻算法详解/">K近邻算法详解</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            本文打算简单介绍K近邻算法。不展开论述。
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/06/19/K近邻算法详解/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://oco8bvfr8.qnssl.com/new_aman.jpg?imageView2/2/w/300/h/300/interlace/1/q/90" width="44px" height="44px" alt="李清泉's avatar">
-            </div>
-            <div>
-                <strong>李清泉</strong>
-                <span>6月 19, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/人工智能/">人工智能</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/06/11/极大似然函数简单解释/">极大似然函数简单解释</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            极大似然函数花了我好多时间理解。我觉得很有必要写一篇博文解释一下。虽然网上有关的博客很多，但大多数都写得过于复杂，我想解释得简单一些。
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/06/11/极大似然函数简单解释/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://oco8bvfr8.qnssl.com/new_aman.jpg?imageView2/2/w/300/h/300/interlace/1/q/90" width="44px" height="44px" alt="李清泉's avatar">
-            </div>
-            <div>
-                <strong>李清泉</strong>
-                <span>6月 11, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/人工智能/">人工智能</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/06/10/PCA数学原理理解/">PCA数学原理理解</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            本文讨论对PCA数学原理的理解。
-原文中最难理解的是：
-
-协方差矩阵的特征向量为什么是原始数据的降维方向？
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/06/10/PCA数学原理理解/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://oco8bvfr8.qnssl.com/new_aman.jpg?imageView2/2/w/300/h/300/interlace/1/q/90" width="44px" height="44px" alt="李清泉's avatar">
-            </div>
-            <div>
-                <strong>李清泉</strong>
-                <span>6月 10, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/人工智能/">人工智能</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/05/09/PCA数学原理/">PCA的数学原理(转)</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            PCA（Principal Component Analysis）是一种常用的数据分析方法。PCA通过线性变换将原始数据变换为一组各维度线性无关的表...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/05/09/PCA数学原理/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://oco8bvfr8.qnssl.com/new_aman.jpg?imageView2/2/w/300/h/300/interlace/1/q/90" width="44px" height="44px" alt="李清泉's avatar">
-            </div>
-            <div>
-                <strong>李清泉</strong>
-                <span>5月 09, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/人工智能/">人工智能</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                K近邻算法详解
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="https://oco8bvfr8.qnssl.com/new_aman.jpg?imageView2/2/w/300/h/300/interlace/1/q/90" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>李清泉</strong>
+        <span>6月 19, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/K近邻-机器学习/">-K近邻 -机器学习</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>本文打算简单介绍K近邻算法。不展开论述。</p>
+<h3 id="K近邻算法概述"><a href="#K近邻算法概述" class="headerlink" title="K近邻算法概述"></a>K近邻算法概述</h3><blockquote>
+<p>举个例子：</p>
+<p>如果你想知道170厘米身高的人体重是多少。最好的办法是不是从一堆人当中找到几个身高最接近170厘米的人，称出他们的体重然后算平均值呢？</p>
+</blockquote>
+<p>事实上，K近邻就是这样简单。所谓“K”，就是找最接近估算值的K个元素然后算平均值。</p>
+<p>设我们有一堆数据：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>性别</th>
+<th>身高</th>
+<th>胖瘦(目测)</th>
+<th>体重</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>男</td>
+<td>171</td>
+<td>胖</td>
+<td>65</td>
+</tr>
+<tr>
+<td>女</td>
+<td>167</td>
+<td>瘦</td>
+<td>59</td>
+</tr>
+<tr>
+<td>男</td>
+<td>170</td>
+<td>瘦</td>
+<td>63</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>现在我们要估测下面一个人的体重：男，169，胖。怎么测呢？我们如果只看身高，女生也有170的人，但明显女生的数据不太符合我们的要求，还有胖瘦也应该符合要预测的数据才行。所以，我们应该用N维的近邻估测。即ML-KNN。</p>
+<h3 id="数据标准化"><a href="#数据标准化" class="headerlink" title="数据标准化"></a>数据标准化</h3><p>这里必须先介绍数据标准化的概念。上面的数据，性别只有男女，即可以改为1，0，胖瘦也是一样，而身高变化的范围却很大。当我们使用算法时某一些字段可能影响过大而造成“不公平”。设$\mu$ 为某字段的均值，$\sigma$ 为对应标准差，数据标准化的公式为：</p>
+<script type="math/tex; mode=display">
+{ {x- \mu} \over \sigma}</script><p>数据标准化后，所有字段都会转化为以0为对称中心的数据，消除了比例差异。</p>
+<h3 id="欧氏距离"><a href="#欧氏距离" class="headerlink" title="欧氏距离"></a>欧氏距离</h3><p>可以使用欧氏距离计算ML-KNN的多维距离。</p>
+<script type="math/tex; mode=display">
+d= {1 \over n} \sum_{i=1}^n(p_i-q_i)^2</script><script type="math/tex; mode=display">
+\sqrt{d}</script><p>其中,p,q为相应两条数据的对应字段。(博客有问题，无法解析根号)</p>
+<h3 id="N维K近邻"><a href="#N维K近邻" class="headerlink" title="N维K近邻"></a>N维K近邻</h3><p>将表格中所有字段进行标准化处理后，再应用欧氏距离公式算出每条样本数据与要估算的数据的值。然后进行排序，找出距离最近的K条数据，然后对这几条数据的体重算平均值。</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/06/20/新立项开发方案讨论/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/06/18/美国是否可能走向独裁/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -890,6 +887,26 @@ It will not impact the appearance and can give developers a lot of support :)
 </script>
 
 <!-- MathJax Load-->
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+    <script src="https://cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
 
 
 <!-- Bing Background -->
