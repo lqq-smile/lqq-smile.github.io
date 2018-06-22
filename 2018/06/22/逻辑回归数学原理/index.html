@@ -239,7 +239,7 @@
 
     
         <meta property="article:published_time" content="Fri Jun 22 2018 18:40:17 GMT+0800">
-        <meta property="article:modified_time" content="Fri Jun 22 2018 20:23:57 GMT+0800">
+        <meta property="article:modified_time" content="Fri Jun 22 2018 20:31:56 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -262,7 +262,7 @@
     "mainEntityOfPage": "https://lqq-smile.github.io/2018/06/22/逻辑回归数学原理/index.html",
     "headline": "逻辑回归数学原理",
     "datePublished": "Fri Jun 22 2018 18:40:17 GMT+0800",
-    "dateModified": "Fri Jun 22 2018 20:23:57 GMT+0800",
+    "dateModified": "Fri Jun 22 2018 20:31:56 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "李清泉",
@@ -491,8 +491,11 @@ ln(P(y|x;\theta))=ln( \prod_{i=1}^m P(y_i|x_i;\theta))=ln(\prod_{i=1}^m h_\theta
 <script type="math/tex; mode=display">
 (ln(P(y|x;\theta)))'=(ln(\prod_{i=1}^m h_\theta(x_i)^{y_i}(1-h_\theta(x_i))^{1-y_i}))' \\
 =(\sum_{i=1}^m(y_ilnh_\theta(x_i)+(1-y_i)ln(1-h_\theta(x_i))))' \\
-=\sum_{i=1}^m(y_i {1\over {h_\theta(x_i)}}-(1-y_i){1\over{1-h_\theta(x_i)}})(h_\theta(x_i))'</script><p>问题来了，$(h<em>\theta(x))’$是什么？上面已知：$h</em>\theta(x)={1\over {1+{e^{-\theta^TX}}}}$</p>
-<p>所以，关键是对Sigmoid 函数求导。</p>
+=\sum_{i=1}^m(y_i {1\over {h_\theta(x_i)}}-(1-y_i){1\over{1-h_\theta(x_i)}})(h_\theta(x_i))'</script><p>问题来了，</p>
+<script type="math/tex; mode=display">
+(h_\theta(x))'</script><p>是什么？上面已知：</p>
+<script type="math/tex; mode=display">
+h_\theta(x)={1\over {1+{e^{-\theta^TX}}}}</script><p>所以，关键是对Sigmoid 函数求导。</p>
 <h4 id="sigmoid函数求导"><a href="#sigmoid函数求导" class="headerlink" title="sigmoid函数求导"></a>sigmoid函数求导</h4><script type="math/tex; mode=display">
 (h_\theta(x_i))'=({1\over {1+{e^{-\theta^Tx_i}}}})' \\</script><p>设$z=\theta^Tx_i$,$y={1\over{1+e^{-z}}}$我们有：</p>
 <script type="math/tex; mode=display">
